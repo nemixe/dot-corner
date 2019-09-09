@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOT Corner</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <script src="./assets/js/vue.min.js"></script>
+  <script src="./assets/js/moment.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="columns full-height is-marginless">
+      <div class="side" :style="'background: ' + currentEvent.mainColor"></div>
+      <div class="column">
+        <div class="content has-padding-x-100 has-padding-top-50 has-padding-left-125">
+          <h1 class="title custom"><span class="has-padding-top-10 has-border-top-5-green">DOT</span> <br /> Information Corner</h1>
+          <p class="description">{{currentEvent.description}}</p>
+          <p class="time has-margin-top-50 has-text-weight-bold has-border-bottom-2-black is-pulled-left">
+            {{now}}
+          </p>
+        </div>
+      </div>
+      <div class="column is-flex is-horizontal-center" :style="'background: ' + currentEvent.mainColor">
+        <img style="max-width: 100% !important;max-height: 100% !important;object-fit: contain" :src="currentEvent.payload" alt="">
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./assets/js/main.js"></script>
+
+</html>
