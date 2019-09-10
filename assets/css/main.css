@@ -102,3 +102,278 @@ html {
 .is-horizontal-center {
   justify-content: center;
 }
+
+@media screen and (min-width: 1380px) and (max-width: 1600px) {
+  .title.custom {
+    font-size: 3em;
+  }
+  .description,
+  .time {
+    font-size: 1.6em;
+  }
+}
+
+@media screen and (min-width: 1601px) {
+  .title.custom {
+    font-size: 3.75em;
+  }
+  .description,
+  .time {
+    font-size: 2em;
+  }
+}
+
+
+/* clock */
+
+.digit {
+  position: relative;
+  padding: 10px;
+  float: left;
+  width: 7%;
+  height: 40px;
+  background-color: #3BF301;
+  border-radius: .5vw;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.divider-1 {
+  position: absolute;
+  left: 17%;
+  top: 5%;
+}
+
+.divider-2 {
+  position: absolute;
+  left: 38%;
+  top: 5%;
+}
+
+.hour::after,
+.min::after {
+  content: ":";
+  position: absolute;
+  left: 110%;
+  top: 6%;
+  font-weight: bold;
+  color: rgb(145, 145, 145);
+}
+
+.base {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+}
+
+.flap {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-color: #3BF301;
+  left: 0;
+  top: 0;
+  border-radius: .5vw .5vw 0 0;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.flap::before {
+  content: attr(data-content);
+  position: absolute;
+  left: 50%;
+}
+
+.flap.front::before,
+.flap.under::before {
+  top: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.flap.back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.flap.back::before {
+  top: 100%;
+  -webkit-transform: translate(-50%, -50%) rotateZ(180deg);
+  transform: translate(-50%, -50%) rotateZ(180deg);
+}
+
+.flap.over {
+  z-index: 2;
+}
+
+.flap.under {
+  z-index: 1;
+}
+
+.flap.front {
+  -webkit-animation: flip-down-front 300ms ease-in both;
+  animation: flip-down-front 300ms ease-in both;
+}
+
+.flap.back {
+  -webkit-animation: flip-down-back 300ms ease-in both;
+  animation: flip-down-back 300ms ease-in both;
+}
+
+.flap.under {
+  -webkit-animation: fade-under 300ms ease-in both;
+  animation: fade-under 300ms ease-in both;
+}
+
+@-webkit-keyframes flip-down-front {
+  0% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    background-color: #3BF301;
+    color: rgb(255, 255, 255);
+  }
+  100% {
+    -webkit-transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
+    background-color: rgb(39, 167, 0);
+    color: rgb(240, 240, 240);
+  }
+}
+
+@keyframes flip-down-front {
+  0% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    background-color: #3BF301;
+    color: rgb(255, 255, 255);
+  }
+  100% {
+    -webkit-transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
+    background-color: rgb(39, 167, 0);
+    color: rgb(240, 240, 240);
+  }
+}
+
+@-webkit-keyframes flip-down-back {
+  0% {
+    -webkit-transform: rotateY(180deg) rotateX(0deg);
+    transform: rotateY(180deg) rotateX(0deg);
+    background-color: rgb(39, 167, 0);
+    color: rgb(240, 240, 240);
+  }
+  100% {
+    -webkit-transform: rotateY(180deg) rotateX(180deg);
+    transform: rotateY(180deg) rotateX(180deg);
+    background-color: #3BF301;
+    color: rgb(255, 255, 255);
+  }
+}
+
+@keyframes flip-down-back {
+  0% {
+    -webkit-transform: rotateY(180deg) rotateX(0deg);
+    transform: rotateY(180deg) rotateX(0deg);
+    background-color: rgb(39, 167, 0);
+    color: rgb(240, 240, 240);
+  }
+  100% {
+    -webkit-transform: rotateY(180deg) rotateX(180deg);
+    transform: rotateY(180deg) rotateX(180deg);
+    background-color: #3BF301;
+    color: rgb(255, 255, 255);
+  }
+}
+
+@-webkit-keyframes fade-under {
+  0% {
+    background-color: rgb(39, 167, 0);
+    color: rgb(240, 240, 240);
+  }
+  100% {
+    background-color: #3BF301;
+    color: rgb(255, 255, 255);
+  }
+}
+
+@keyframes fade-under {
+  0% {
+    background-color: rgb(39, 167, 0);
+    color: rgb(240, 240, 240);
+  }
+  100% {
+    background-color: #3BF301;
+    color: rgb(255, 255, 255);
+  }
+}
+
+.clock {
+  width: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-perspective: 100vw;
+  perspective: 100vw;
+  -webkit-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
+}
+
+.clock .digit {
+  margin-right: 1%;
+}
+
+.clock .digit:nth-child(2n+2) {
+  margin-right: 3%;
+}
+
+.clock .digit:last-child {
+  margin-right: 0;
+}
+
+@media screen and (min-width: 1380px) and (max-width: 1600px) {
+  .digit {
+    position: relative;
+    padding: 10px;
+    float: left;
+    width: 7%;
+    height: 60px;
+    background-color: #3BF301;
+    border-radius: .2vw;
+    text-align: center;
+    font-family: Oswald, sans-serif;
+    font-size: 1.3em;
+  }
+  .hour::after,
+  .min::after {
+    left: 100%;
+    top: 10%;
+  }
+}
+
+@media screen and (min-width: 1601px) {
+  .digit {
+    position: relative;
+    padding: 10px;
+    float: left;
+    width: 7%;
+    height: 80px;
+    background-color: #3BF301;
+    border-radius: .5vw;
+    text-align: center;
+    font-family: Oswald, sans-serif;
+    font-size: 1.3em;
+  }
+  .hour::after,
+  .min::after {
+    left: 103%;
+    top: 13%;
+  }
+}

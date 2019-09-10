@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>DOT Corner</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?f  amily=Roboto+Slab&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/main.css">
   <script src="./assets/js/vue.min.js"></script>
@@ -21,13 +21,57 @@
         <div class="content has-padding-x-100 has-padding-top-50 has-padding-left-125">
           <h1 class="title custom"><span class="has-padding-top-10 has-border-top-5-green">DOT</span> <br /> Information Corner</h1>
           <p class="description">{{currentEvent.description}}</p>
-          <p class="time has-margin-top-50 has-text-weight-bold has-border-bottom-2-black is-pulled-left">
-            {{now}}
-          </p>
+          <div class="time has-margin-top-50" style="position: relative" v-show="currentEvent.limit">
+            <div class="clock">
+
+              <div class="digit tenhour">
+                <div class="base"></div>
+                <div class="flap over front"></div>
+                <div class="flap over back"></div>
+                <div class="flap under"></div>
+              </div>
+
+              <div class="digit hour">
+                <div class="base"></div>
+                <div class="flap over front"></div>
+                <div class="flap over back"></div>
+                <div class="flap under"></div>
+              </div>
+
+              <div class="digit tenmin">
+                <div class="base"></div>
+                <div class="flap over front"></div>
+                <div class="flap over back"></div>
+                <div class="flap under"></div>
+              </div>
+
+              <div class="digit min">
+                <div class="base"></div>
+                <div class="flap over front"></div>
+                <div class="flap over back"></div>
+                <div class="flap under"></div>
+              </div>
+
+
+              <div class="digit tensec">
+                <div class="base"></div>
+                <div class="flap over front"></div>
+                <div class="flap over back"></div>
+                <div class="flap under"></div>
+              </div>
+
+              <div class="digit sec">
+                <div class="base"></div>
+                <div class="flap over front"></div>
+                <div class="flap over back"></div>
+                <div class="flap under"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="column is-flex is-horizontal-center" :style="'background: ' + currentEvent.mainColor">
-        <img style="max-width: 100% !important;max-height: 100% !important;object-fit: contain" :src="currentEvent.payload" alt="">
+      <div class="column is-flex is-horizontal-center is-paddingless" :style="'background: ' + currentEvent.mainColor">
+        <img style="max-width: 100% !important;max-height: 100% !important;object-fit: contain" :src="currentEvent.imageSrc" alt="">
       </div>
     </div>
   </div>
