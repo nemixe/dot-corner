@@ -56,9 +56,9 @@ let app = new Vue({
       var diff = l.getTime() - n.getTime();
 
       if (diff <= 0) {
-        this.updateGroup('hour', 'BY', flip);
-        this.updateGroup('min', 'EB', flip);
-        this.updateGroup('sec', 'YE', flip);
+        this.updateGroup('hour', '--', flip);
+        this.updateGroup('min', '--', flip);
+        this.updateGroup('sec', '--', flip);
         return
       }
 
