@@ -1,0 +1,45 @@
+{
+  "connection": "default",
+  "collectionName": "events",
+  "info": {
+    "name": "event",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "maxLength": 15,
+      "required": true,
+      "minLength": 5,
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "type": {
+      "enum": [
+        "image",
+        "quote"
+      ],
+      "type": "enumeration"
+    },
+    "imageSrc": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "limit": {
+      "type": "date"
+    },
+    "mainColor": {
+      "default": "mainColor",
+      "minLength": 4,
+      "maxLength": 7,
+      "type": "string"
+    }
+  }
+}
