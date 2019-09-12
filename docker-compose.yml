@@ -1,0 +1,15 @@
+version: "3.0"
+services:
+  corner:
+    image: node:10.16.3
+    volumes:
+      - "./:/app"
+      - "tmp:/app/.tmp"
+      - "uploads:/app/public/uploads"
+    command: /bin/bash -c "/app/run-server.sh"
+    ports:
+      - "1337:1337"
+
+volumes:
+  tmp:
+  uploads:
