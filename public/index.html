@@ -17,73 +17,73 @@
 <body>
   <div id="app">
     <div class="columns full-height is-marginless">
-      <div class="side" :style="'background: ' + currentEvent.mainColor"></div>
+      <div class="side" :style="'background: #3BF301'"></div>
       <div class="column">
         <div class="content has-padding-x-100 has-padding-top-50 has-padding-left-125">
           <h1 class="title custom"><span class="has-padding-top-10 has-border-top-5-green">DOT</span> <br /> Information Corner</h1>
 
-          <h2 v-show="currentEvent.type === 'image'">{{currentEvent.title}}</h2>
+          <h2 v-show="currentEvent.type === 'image'" class="has-font-roboto">{{currentEvent.title}}</h2>
           <p v-if="currentEvent.type === 'image'" class="description">{{currentEvent.description}}</p>
           <div v-else-if="currentEvent.type === 'quote'" class="quote-container columns is-desktop is-vcentered">
             <div class="content-quote" style="width: 100%">
               <h1>{{currentEvent.description}}</h1>
             </div>
           </div>
-          <div class="time has-margin-top-50" style="position: relative" v-show="currentEvent.limit">
-            <div class="clock">
+          <div class="time has-margin-top-50" style="position: relative" v-show="currentEvent.type === 'image' && new Date(currentEvent.limit) > Date.now()">
+            <div class=" clock ">
 
-              <div class="digit tenhour">
-                <div class="base"></div>
-                <div class="flap over front"></div>
-                <div class="flap over back"></div>
-                <div class="flap under"></div>
+              <div class="digit tenhour ">
+                <div class="base "></div>
+                <div class="flap over front "></div>
+                <div class="flap over back "></div>
+                <div class="flap under "></div>
               </div>
 
-              <div class="digit hour">
-                <div class="base"></div>
-                <div class="flap over front"></div>
-                <div class="flap over back"></div>
-                <div class="flap under"></div>
+              <div class="digit hour ">
+                <div class="base "></div>
+                <div class="flap over front "></div>
+                <div class="flap over back "></div>
+                <div class="flap under "></div>
               </div>
 
-              <div class="digit tenmin">
-                <div class="base"></div>
-                <div class="flap over front"></div>
-                <div class="flap over back"></div>
-                <div class="flap under"></div>
+              <div class="digit tenmin ">
+                <div class="base "></div>
+                <div class="flap over front "></div>
+                <div class="flap over back "></div>
+                <div class="flap under "></div>
               </div>
 
-              <div class="digit min">
-                <div class="base"></div>
-                <div class="flap over front"></div>
-                <div class="flap over back"></div>
-                <div class="flap under"></div>
+              <div class="digit min ">
+                <div class="base "></div>
+                <div class="flap over front "></div>
+                <div class="flap over back "></div>
+                <div class="flap under "></div>
               </div>
 
 
-              <div class="digit tensec">
-                <div class="base"></div>
-                <div class="flap over front"></div>
-                <div class="flap over back"></div>
-                <div class="flap under"></div>
+              <div class="digit tensec ">
+                <div class="base "></div>
+                <div class="flap over front "></div>
+                <div class="flap over back "></div>
+                <div class="flap under "></div>
               </div>
 
-              <div class="digit sec">
-                <div class="base"></div>
-                <div class="flap over front"></div>
-                <div class="flap over back"></div>
-                <div class="flap under"></div>
+              <div class="digit sec ">
+                <div class="base "></div>
+                <div class="flap over front "></div>
+                <div class="flap over back "></div>
+                <div class="flap under "></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="column is-flex is-horizontal-center is-paddingless" :style="'background: ' + currentEvent.mainColor">
-        <img style="max-width: 100% !important;max-height: 100% !important;object-fit: contain" :src="currentEvent.imageSrc" alt="">
+      <div class="column is-flex is-horizontal-center is-paddingless " :style=" 'background: ' + currentEvent.mainColor ">
+        <img style="max-width: 100% !important;max-height: 100% !important;object-fit: contain " :src="currentEvent.imageSrc " alt=" ">
       </div>
     </div>
   </div>
 </body>
-<script src="./assets/js/main.js"></script>
+<script src="./assets/js/main.js "></script>
 
 </html>

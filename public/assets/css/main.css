@@ -7,6 +7,10 @@ html {
   font-family: 'Roboto Slab', serif;
 }
 
+.has-font-roboto {
+  font-family: Roboto;
+}
+
 .content-quote {
   font-family: Roboto;
   font-style: italic;
@@ -166,9 +170,10 @@ html {
   float: left;
   width: 15%;
   height: 90px;
-  background-color: #3BF301;
+  background-color: #02172c;
   border-radius: .5vw;
   text-align: center;
+  font-weight: bold;
   font-size: 2em;
 }
 
@@ -209,7 +214,7 @@ html {
   position: absolute;
   width: 100%;
   height: 50%;
-  background-color: #3BF301;
+  background-color: #02172c;
   left: 0;
   top: 0;
   border-radius: .5vw .5vw 0 0;
@@ -271,13 +276,13 @@ html {
   0% {
     -webkit-transform: rotateX(0deg);
     transform: rotateX(0deg);
-    background-color: #3BF301;
+    background-color: #02172c;
     color: rgb(255, 255, 255);
   }
   100% {
     -webkit-transform: rotateX(-180deg);
     transform: rotateX(-180deg);
-    background-color: rgb(39, 167, 0);
+    background-color: #00080f;
     color: rgb(240, 240, 240);
   }
 }
@@ -286,13 +291,13 @@ html {
   0% {
     -webkit-transform: rotateX(0deg);
     transform: rotateX(0deg);
-    background-color: #3BF301;
+    background-color: #02172c;
     color: rgb(255, 255, 255);
   }
   100% {
     -webkit-transform: rotateX(-180deg);
     transform: rotateX(-180deg);
-    background-color: rgb(39, 167, 0);
+    background-color: #00080f;
     color: rgb(240, 240, 240);
   }
 }
@@ -301,13 +306,13 @@ html {
   0% {
     -webkit-transform: rotateY(180deg) rotateX(0deg);
     transform: rotateY(180deg) rotateX(0deg);
-    background-color: rgb(39, 167, 0);
+    background-color: #00080f;
     color: rgb(240, 240, 240);
   }
   100% {
     -webkit-transform: rotateY(180deg) rotateX(180deg);
     transform: rotateY(180deg) rotateX(180deg);
-    background-color: #3BF301;
+    background-color: #02172c;
     color: rgb(255, 255, 255);
   }
 }
@@ -316,35 +321,35 @@ html {
   0% {
     -webkit-transform: rotateY(180deg) rotateX(0deg);
     transform: rotateY(180deg) rotateX(0deg);
-    background-color: rgb(39, 167, 0);
+    background-color: #00080f;
     color: rgb(240, 240, 240);
   }
   100% {
     -webkit-transform: rotateY(180deg) rotateX(180deg);
     transform: rotateY(180deg) rotateX(180deg);
-    background-color: #3BF301;
+    background-color: #02172c;
     color: rgb(255, 255, 255);
   }
 }
 
 @-webkit-keyframes fade-under {
   0% {
-    background-color: rgb(39, 167, 0);
+    background-color: #00080f;
     color: rgb(240, 240, 240);
   }
   100% {
-    background-color: #3BF301;
+    background-color: #02172c;
     color: rgb(255, 255, 255);
   }
 }
 
 @keyframes fade-under {
   0% {
-    background-color: rgb(39, 167, 0);
+    background-color: #00080f;
     color: rgb(240, 240, 240);
   }
   100% {
-    background-color: #3BF301;
+    background-color: #02172c;
     color: rgb(255, 255, 255);
   }
 }
@@ -374,14 +379,11 @@ html {
 
 @media screen and (min-width: 1380px) and (max-width: 1600px) {
   .digit {
-    position: relative;
     padding: 10px;
-    float: left;
     width: 15%;
     height: 90px;
-    background-color: #3BF301;
     border-radius: .2vw;
-    text-align: center;
+    font-weight: bold;
     font-family: Oswald, sans-serif;
   }
   .hour::after,
@@ -396,7 +398,7 @@ html {
     position: relative;
     width: 15%;
     height: 110px;
-    background-color: #3BF301;
+    background-color: #02172c;
     border-radius: .5vw;
     text-align: center;
     font-family: Oswald, sans-serif;

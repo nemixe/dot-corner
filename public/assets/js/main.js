@@ -29,19 +29,30 @@ let app = new Vue({
   },
   mounted: function() {
     this.loadEvents()
-    this.date()
-    let self = this
-    this.setTime(false);
-    setInterval(function() {
-        self.setTime(true);
-      }, 1000)
-      // setInterval(function() {
-      //   self.indexEvent += 1
-      //   self.indexEvent > self.events.length ? self.indexEvent = 0 : null
-      //   self.currentEvent = self.events[self.indexEvent]
-      // }, 10000)
+    this.autoChangeEvent()
   },
   methods: {
+    autoChangeEvent: function() {
+      let self = this
+      setInterval(function() {
+        self.indexEvent += 1
+        if (self.indexEvent > self.events.length) {
+          self.loadEvents();
+          self.indexEvent = 0
+        }
+        self.currentEvent = self.events[self.indexEvent]
+      }, 10000)
+      console.count('1')
+    },
+    countdown: function() {
+      this.setTime(false)
+      this.setTime()
+      let self = this
+      setTimeout(function() {
+        self.countdown()
+      }, 1000)
+      console.count('2')
+    },
     loadEvents: function() {
       let self = this
       axios.get('/events').then(res => {
@@ -65,7 +76,10 @@ let app = new Vue({
           )
         })
         self.currentEvent = self.events[0]
+
+        self.countdown() // start countdown event
       })
+      console.count('3')
     },
     date: function() {
       let self = this
@@ -73,6 +87,7 @@ let app = new Vue({
       setTimeout(() => {
         self.date()
       }, 1000)
+      console.count('4')
     },
     setTime: function(flip) {
       var n = new Date();
@@ -97,6 +112,7 @@ let app = new Vue({
       this.updateGroup('hour', hh, flip);
       this.updateGroup('min', mm, flip);
       this.updateGroup('sec', ss, flip);
+      console.count('5')
     },
     updateGroup: function(group, n, flip) {
       var digit1 = document.querySelector('.ten' + group);
@@ -114,12 +130,14 @@ let app = new Vue({
         if (flip) this.flipTo(digit2, num1);
         else this.jumpTo(digit2, num1);
       }
+      console.count('6')
     },
     jumpTo: function(digit, n) {
       digit.setAttribute('data-num', n);
       digit.querySelectorAll('.base').forEach(element => {
         element.innerHTML = n
       });
+      console.count('7')
     },
     flipTo: function(digit, n) {
       var current = digit.getAttribute('data-num');
@@ -142,6 +160,7 @@ let app = new Vue({
           element.style = 'display: none'
         });
       }, 350);
+      console.count('8')
     }
   }
 })
