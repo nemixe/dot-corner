@@ -1,4 +1,4 @@
-function image(title, src, description, mainColor = '#fff', limit) {
+function image(title, src, description, mainColor = 'green', limit) {
   return {
     title: title,
     type: 'image',
@@ -9,11 +9,13 @@ function image(title, src, description, mainColor = '#fff', limit) {
   }
 }
 
-function quote(title, description) {
+function quote(title, src, description, mainColor = 'green') {
   return {
-    type: 'quote',
     title: title,
-    description: description
+    type: 'quote',
+    imageSrc: src,
+    description: description,
+    mainColor: mainColor,
   }
 }
 
@@ -21,6 +23,7 @@ let app = new Vue({
   el: '#app',
   data: {
     currentEvent: {},
+    indexEvent: -1,
     events: [],
     now: null
   },
@@ -30,8 +33,13 @@ let app = new Vue({
     let self = this
     this.setTime(false);
     setInterval(function() {
-      self.setTime(true);
-    }, 1000)
+        self.setTime(true);
+      }, 1000)
+      // setInterval(function() {
+      //   self.indexEvent += 1
+      //   self.indexEvent > self.events.length ? self.indexEvent = 0 : null
+      //   self.currentEvent = self.events[self.indexEvent]
+      // }, 10000)
   },
   methods: {
     loadEvents: function() {
@@ -51,7 +59,9 @@ let app = new Vue({
             formatedDate
           ) : quote(
             resp.title,
-            resp.description
+            resp.imageSrc.url,
+            resp.description,
+            resp.mainColor
           )
         })
         self.currentEvent = self.events[0]

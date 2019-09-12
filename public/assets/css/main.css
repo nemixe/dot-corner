@@ -7,6 +7,24 @@ html {
   font-family: 'Roboto Slab', serif;
 }
 
+.content-quote {
+  font-family: Roboto;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.content-quote h1 {
+  color: rgb(75, 75, 75) !important;
+}
+
+.content-quote h1::before {
+  content: '“ ';
+}
+
+.content-quote h1::after {
+  content: ' ”';
+}
+
 .full-height {
   height: 100vh;
 }
@@ -17,6 +35,16 @@ html {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
+}
+
+.quote-container {
+  height: 50vh;
+  width: 70vh;
+  position: absolute;
+  top: 50%;
+  border-radius: 8px;
+  transform: translate(0%, -50%);
+  text-align: center
 }
 
 .square {
@@ -107,6 +135,9 @@ html {
   .title.custom {
     font-size: 3em;
   }
+  .quote-container {
+    width: 60vh;
+  }
   .description,
   .time {
     font-size: 1.6em;
@@ -116,6 +147,9 @@ html {
 @media screen and (min-width: 1601px) {
   .title.custom {
     font-size: 3.75em;
+  }
+  .quote-container {
+    width: 50vh;
   }
   .description,
   .time {
@@ -130,12 +164,12 @@ html {
   position: relative;
   padding: 10px;
   float: left;
-  width: 7%;
-  height: 40px;
+  width: 15%;
+  height: 90px;
   background-color: #3BF301;
   border-radius: .5vw;
   text-align: center;
-  font-size: 1.3em;
+  font-size: 2em;
 }
 
 .divider-1 {
@@ -154,8 +188,8 @@ html {
 .min::after {
   content: ":";
   position: absolute;
-  left: 110%;
-  top: 6%;
+  left: 103%;
+  top: 18%;
   font-weight: bold;
   color: rgb(145, 145, 145);
 }
@@ -343,17 +377,16 @@ html {
     position: relative;
     padding: 10px;
     float: left;
-    width: 7%;
-    height: 60px;
+    width: 15%;
+    height: 90px;
     background-color: #3BF301;
     border-radius: .2vw;
     text-align: center;
     font-family: Oswald, sans-serif;
-    font-size: 1.3em;
   }
   .hour::after,
   .min::after {
-    left: 100%;
+    left: 98%;
     top: 10%;
   }
 }
@@ -361,19 +394,16 @@ html {
 @media screen and (min-width: 1601px) {
   .digit {
     position: relative;
-    padding: 10px;
-    float: left;
-    width: 7%;
-    height: 80px;
+    width: 15%;
+    height: 110px;
     background-color: #3BF301;
     border-radius: .5vw;
     text-align: center;
     font-family: Oswald, sans-serif;
-    font-size: 1.3em;
   }
   .hour::after,
   .min::after {
-    left: 103%;
-    top: 13%;
+    left: 99%;
+    top: 7%;
   }
 }
